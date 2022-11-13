@@ -58,6 +58,7 @@ class UserTransactionSerializer(serializers.Serializer):
         payment_type = data.get('payment_type')
         payment_type = payment_type.upper()
 
+        # only 2 payment modes should be available
         if (payment_type != "ONLINE" and payment_type != "OFFLINE"):
             msg = ('Payment type should be ONLINE or OFFLINE')
             raise serializers.ValidationError(msg)       

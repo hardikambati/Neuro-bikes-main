@@ -10,6 +10,12 @@ channel.queue_declare(queue='orders')
 
 
 def callback(ch, method, properties, body):
+
+    """
+        This function generated a pdf and stores it in media/pdf folder
+        Triggered on placing an order
+    """
+
     print(">>> Received order")
     data = json.loads(body)
 
