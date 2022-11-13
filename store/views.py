@@ -11,6 +11,10 @@ from . import models
 
 class StaffAccessView(APIView):
 
+    """
+        post : lets admin/staff add new bikes
+    """
+
     permission_classes = (IsAdminUser,)
 
     def post(self, request):
@@ -23,7 +27,11 @@ class StaffAccessView(APIView):
 
 
 class BikeListView(APIView):
-
+    
+    """
+        get : returns list of bikes available for sale
+    """
+    
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):

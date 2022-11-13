@@ -10,6 +10,11 @@ from . import models
 
 class BookServicing(APIView):
 
+    """
+        post : book a service for a bike
+        get : service history for bikes
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):

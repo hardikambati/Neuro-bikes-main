@@ -10,6 +10,11 @@ from . import models
 
 
 class UserTransactionView(APIView):
+    
+    """
+        post : lets user buy a bike
+        get : displays ordered bikes
+    """
 
     permission_classes = [permissions.IsAuthenticated]
 
@@ -37,6 +42,11 @@ class UserTransactionView(APIView):
 
 
 class OrderCancellationView(APIView):
+
+    """
+        post : order cancellation request
+        get : all cancelled orders list
+    """
 
     permission_classes = [permissions.IsAuthenticated]
 
