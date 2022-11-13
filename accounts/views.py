@@ -11,6 +11,10 @@ from extensions.handler import SuccessResponse, FailureResponse
 
 
 class RegisterUserAPIView(generics.CreateAPIView):
+
+    """
+        post : registers a user
+    """
             
     serializer_class = serializers.RegisterSerializer
 
@@ -27,6 +31,10 @@ class RegisterUserAPIView(generics.CreateAPIView):
 
 class LoginUserAPIView(APIView):
 
+    """
+        post : user login
+    """
+
     def post(self, request):
         
         serializer = serializers.LoginSerializer(data=request.data, context={'request': request})
@@ -40,6 +48,10 @@ class LoginUserAPIView(APIView):
 
 
 class UserDetailAPIView(APIView):
+
+    """
+        get : return user data
+    """
 
     permission_classes = [permissions.IsAuthenticated]
 
