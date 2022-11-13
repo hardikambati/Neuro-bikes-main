@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web: 
+      build: .
+      command: python3 manage.py runserver 0.0.0.0:8000
+      ports: 
+          - 8000:8000
+
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    image: rabbitmq:3.9-alpine
