@@ -23,6 +23,11 @@ class Payment(models.Model):
 
     def save(self, *args, **kwargs):
 
+        """
+            if payment is OFFLINE, it has be confirmed by admin, thus PENDING
+            if payment is ONLINE, then COMPLETED
+        """
+
         if (self.payment_type == "OFFLINE"):
             self.status = "PENDING"
         else:
@@ -53,6 +58,11 @@ class ServicePayment(models.Model):
     status = models.CharField(max_length=20, choices=PAYMENT_STATUS, blank=False) 
 
     def save(self, *args, **kwargs):
+
+        """
+            if payment is OFFLINE, it has be confirmed by admin, thus PENDING
+            if payment is ONLINE, then COMPLETED
+        """
 
         if (self.payment_type == "OFFLINE"):
             self.status = "PENDING"

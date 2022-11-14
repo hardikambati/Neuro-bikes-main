@@ -37,6 +37,11 @@ class CancelledOrder(models.Model):
 
     def save(self, *args, **kwargs):
 
+        """
+            if refund request is accepted by admin,
+            create a refund record
+        """
+
         if (self.status == "ACCEPTED"):
 
             # create refund
